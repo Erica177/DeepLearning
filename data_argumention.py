@@ -63,45 +63,16 @@ def transform_image(img,ang_range,shear_range,trans_range):
     img = augment_brightness_camera_images(img)
     
     return img
-"""
-image = mpimg.imread('F:\\class\\DeepLearning\\work\\fllower\\1.jpg')
-plt.imshow(image);
-plt.axis('off');
-gs1 = gridspec.GridSpec(10, 10)
-gs1.update(wspace=0.01, hspace=0.02) # set the spacing between axes. 
-plt.figure(figsize=(224,224))
-for i in range(10):
-  ax1 = plt.subplot(gs1[i])
-  ax1.set_xticklabels([])
-  ax1.set_yticklabels([])
-  ax1.set_aspect('equal')
-  img = transform_image(image,20,10,5)
-  plt.imshow(img)
-  #img.save(str(i*100+j)+'_disease.jpg')
-      #plt.subplot(10,10,i+1)
-      #plt.imshow(img)
-      #plt.axis('off')
 
-"""
 for i in range(1,32):
   image = mpimg.imread('F:\\class\\DeepLearning\\work\\fllower_disease\\'+str(i)+'.jpg')
-  #plt.imshow(image);
-  #plt.axis('off');
   gs1 = gridspec.GridSpec(10, 10)
   gs1.update(wspace=0.01, hspace=0.02) # set the spacing between axes. 
-  #plt.figure(figsize=(12,12))
   for j in range(100):
-      #ax1 = plt.subplot(gs1[i])
-      #ax1.set_xticklabels([])
-      #ax1.set_yticklabels([])
-      #ax1.set_aspect('equal')
       img = transform_image(image,20,10,5)
       im = Image.fromarray(img)
       #print(im.size)
       im.save('F:\\class\\DeepLearning\\work\\train\\disease\\disease_'+str(i*100+j)+'.jpg')
-      #plt.subplot(10,10,i+1)
-      #plt.imshow(img)
-      #plt.axis('off')
   #1plt.show()
   print(str(i)+"th image has saved...")
 print("end")
